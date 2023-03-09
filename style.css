@@ -36,6 +36,7 @@ body {
     display: flex;
     width: 100%;
     min-height: 106px;
+    flex-wrap: wrap;
 }
 .container.first {
     margin: 20px;
@@ -43,32 +44,37 @@ body {
 .cruz {
     flex: 1;
     position: relative;
+    max-width: 600px;
+    margin: 0 auto;
 }
 .flex1{
     flex: 1;
 }
 .numeros {
     flex: 1;
+    min-width: 800px;
+    z-index: 2;
 }
 .square {
-    height: 400px;
-    width: 400px;
+    height: 600px;
+    width: 600px;
     background-color: black;
     border-radius: 5px;
     position: relative;
-    margin: 20px 0px;
+    margin: 20px auto;
 }
 .square:after {
     position: absolute;
     content: "\d7";
-    font-size: 478px;
+    font-size: 800px;
     color: #FFF;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    height: 300px;
-    line-height: 240px;
+    height: 365px;
+    z-index: 0;
+    line-height: 275px;
 }
 .top-balls {
     position: absolute;
@@ -81,40 +87,40 @@ body {
 }
 
 .ball-one {
-    top: 72px;
-    left: 66px;
+    top: 120px;
+    left: 105px;
 }
 .ball-two {
-    top: 110px;
-    left: 180px;
+    top: 175px;
+    left: 285px;
     background: green;
 }
 .ball-three {
-    top: 72px;
-    left: 290px;
+    top: 120px;
+    left: 455px;
 }
 .ball-four {
-    top: 194px;
-    left: 100px;
+    top: 295px;
+    left: 170px;
     background: green;
 }
 .ball-five {
-    top: 194px;
-    left: 256px;
+    top: 295px;
+    left: 395px;
     background: green;
 }
 .ball-six {
-    top: 305px;
-    left: 66px;
+    top: 472px;
+    left: 105px;
 }
 .ball-seven {
-    top: 272px;
-    left: 180px;
+    top: 420px;
+    left: 290px;
     background: green;
 }
 .ball-eight {
-    top: 305px;
-    left: 292px;
+    top: 472px;
+    left: 465px;
 }
 .numeros-label{
     margin: 10px;
@@ -124,6 +130,14 @@ body {
     padding: 10px;
     box-shadow: 5px 5px black;
     border-radius: 5px;
+    width: 400px;
+    height: 60px;
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin: 20px auto;
+    display: block;
 }
 .cuadros{
     border: 1px solid;
@@ -144,4 +158,34 @@ body {
     width: 48px;
     text-align: center;
     border-radius: 50%;
+}
+
+.container-left-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 20px;
+    margin-left: auto;
+}
+.container-left-top span {
+    max-width: 110px;
+}
+
+table {
+    flex: 1;
+    text-transform: uppercase;
+}
+
+table,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: black;
+    color: #fff;
 }
