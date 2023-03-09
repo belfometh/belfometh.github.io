@@ -1,3 +1,4 @@
+let firstTime = true;
 const ballOne = document.getElementById("ballOne");
 const ballTwo = document.getElementById("ballTwo");
 const ballThree = document.getElementById("ballThree");
@@ -96,30 +97,6 @@ const getVibracion = (date, value) => {
 
 }
 
-date_input.addEventListener("change", (event) => {
-    const currentDate = new Date(event.target.value);
-    const currentMonth = (currentDate.getMonth() + 1) <= 9 ? `0${currentDate.getMonth() +1}` : currentDate.getMonth() + 1;
-    const currentDay = currentDate.getUTCDate()  <= 9 ? `0${currentDate.getUTCDate()}` : currentDate.getUTCDate();
-    const currentYear = numberToArray(currentDate.getFullYear());
-
-
-    vibracionDia.innerHTML = getVibracion(currentDate, true);
-    vibracionMes.innerHTML = getVibracion(currentDate, false);
-    generateNumbers(currentDay, currentMonth, currentYear);
-
-     ballOne.innerHTML = outDays[0];
-     ballTwo.innerHTML = inDays[0];
-     ballThree.innerHTML = outDays[1];
-     ballFour.innerHTML = inDays[1];
-     ballFive.innerHTML = inDays[2];
-     ballSix.innerHTML = outDays[2];
-     ballSeven.innerHTML = inDays[3];
-     ballEight.innerHTML = outDays[3];
-
-
-    console.log("full", event.target.value, "dia", currentDay, "mes", currentMonth, "anno", currentYear, outDays, inDays);
-});
-
 numeros_input.addEventListener("change", (event) => {
     const currentValue = event.target.value;
     let tempArray = [];
@@ -162,7 +139,6 @@ const loadDate = () => {
     date_input.valueAsDate = new Date(today);
 }
 
-loadDate();
 
 const numberToArray = (myInt) => {
     let myFunc = num => Number(num);
@@ -207,4 +183,46 @@ const generateArrays = (array1, array2, array3) => {
         inDays.push(i <= 0 ? Number(tempValueB[0]) : Number(tempValueA[0]));
         inDays.push(i <= 0 ? Number(tempValueB[1]) : Number(tempValueA[1]));
     });
+}
+
+const generator = (event) => {
+    const currentDate = firstTime ? event : new Date(event.target.value);
+    const currentMonth = (currentDate.getMonth() + 1) <= 9 ? `0${currentDate.getMonth() +1}` : currentDate.getMonth() + 1;
+    const currentDay = currentDate.getUTCDate()  <= 9 ? `0${currentDate.getUTCDate()}` : currentDate.getUTCDate();
+    const currentYear = numberToArray(currentDate.getFullYear());
+
+    generateNumbers(currentDay, currentMonth, currentYear);
+
+     ballOne.innerHTML = outDays[0];
+     ballTwo.innerHTML = inDays[0];
+     ballThree.innerHTML = outDays[1];
+     ballFour.innerHTML = inDays[1];
+     ballFive.innerHTML = inDays[2];
+     ballSix.innerHTML = outDays[2];
+     ballSeven.innerHTML = inDays[3];
+     ballEight.innerHTML = outDays[3];
+     vibracionDia.innerHTML = getVibracion(currentDate, true);
+     vibracionMes.innerHTML = getVibracion(currentDate, false);
+
+     if (!firstTime) console.log(event.target.value)
+
+     firstTime = false;
+
+     console.log("full", currentDate, "dia", currentDay, "mes", currentMonth, "anno", currentYear, outDays, inDays, getVibracion(currentDate, true), getVibracion(currentDate, false));
+}
+
+date_input.addEventListener("change", (event) => generator(event));
+
+if (firstTime) {
+    let now = new Date();
+    let month = (now.getMonth() + 1);               
+    let day = now.getDate();
+    if (month < 10) 
+        month = "0" + month;
+    if (day < 10) 
+        day = "0" + day;
+    let today = now.getFullYear() + '-' + month + '-' + day;
+
+    loadDate();
+    generator(new Date(today));
 }
