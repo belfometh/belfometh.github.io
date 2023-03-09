@@ -14,16 +14,15 @@ body {
 #date_input {
     background-color: black;
     padding: 15px;
-    position: absolute;
     margin: 20px;
     font-family: "Roboto Mono",monospace;
     color: #ffffff;
-    font-size: 26px;
+    font-size: 45px;
     border: none;
     outline: none;
     border-radius: 5px;
     z-index: 99;
-    max-width: 258px;
+    max-width: 385px;
 }
 ::-webkit-calendar-picker-indicator {
     background-color: #ffffff;
@@ -79,67 +78,69 @@ body {
 .top-balls {
     position: absolute;
     color: white;
-    font-size: 36px;
+    font-size: 60px;
     background: orange;
-    width: 48px;
+    width: 75px;
     text-align: center;
     border-radius: 50%;
 }
 
 .ball-one {
-    top: 120px;
-    left: 105px;
+    top: 85px;
+    left: 85px;
 }
 .ball-two {
-    top: 175px;
-    left: 285px;
+    top: 150px;
+    left: 270px;
     background: green;
 }
 .ball-three {
-    top: 120px;
+    top: 85px;
     left: 455px;
 }
 .ball-four {
-    top: 295px;
-    left: 170px;
+    top: 280px;
+    left: 150px;
     background: green;
 }
 .ball-five {
-    top: 295px;
+    top: 275px;
     left: 395px;
     background: green;
 }
 .ball-six {
-    top: 472px;
-    left: 105px;
+    top: 475px;
+    left: 85px;
 }
 .ball-seven {
-    top: 420px;
-    left: 290px;
+    top: 415px;
+    left: 275px;
     background: green;
 }
 .ball-eight {
-    top: 472px;
+    top: 470px;
     left: 465px;
 }
-.numeros-label{
+.numeros-label {
     margin: 10px;
 }
-.numeros-input{
+.numeros-input {
     border: 1px solid;
     padding: 10px;
     box-shadow: 5px 5px black;
     border-radius: 5px;
-    width: 400px;
+    width: 580px;
     height: 60px;
-    font-size: 28px;
+    font-size: 50px;
     font-weight: bold;
     color: black;
     text-align: center;
-    margin: 20px auto;
+    margin: 0 auto;
+    margin-top: 25px;
     display: block;
+    margin-bottom: 40px;
 }
-.cuadros{
+.cuadros {
     border: 1px solid;
     border-radius: 5px;
     padding: 10px;
@@ -153,22 +154,22 @@ body {
 
 .cuadros .balls {
     color: white;
-    font-size: 36px;
+    font-size: 60px;
     background: orange;
-    width: 48px;
+    width: 75px;
     text-align: center;
     border-radius: 50%;
 }
 
 .container-left-top {
     display: flex;
-    align-items: center;
     gap: 20px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
     padding: 0 20px;
-    margin-left: auto;
+    width: 100%;
+    margin: 20px 0px;
 }
 .container-left-top span {
     max-width: 110px;
@@ -182,10 +183,20 @@ table {
 table,
 td {
     border: 1px solid #333;
+    font-size: 33px;
+    font-weight: bold;
 }
 
 thead,
 tfoot {
     background-color: black;
     color: #fff;
+}
+
+.flex-picker {
+    display: flex;
+    min-height: 156px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 45px;
 }
