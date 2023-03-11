@@ -193,7 +193,7 @@ const generator = (event) => {
 
     generateNumbers(currentDay, currentMonth, currentYear);
 
-     ballOne.innerHTML = outDays[0];
+     ballOne.innerHTML = outDays[0] == 0 ? 1 : outDays[0];
      ballTwo.innerHTML = inDays[0];
      ballThree.innerHTML = outDays[1];
      ballFour.innerHTML = inDays[1];
